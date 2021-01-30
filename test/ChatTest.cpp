@@ -3,20 +3,25 @@
 //
 #include "gtest/gtest.h"
 #include "../Chat.h"
-Utente mattia("Mattia");
-Utente giulia("Giulia");
-TEST(Chat,GetSetter){
-    Chat c (mattia,giulia);
-    ASSERT_EQ(c.getNome().getNominativo(),mattia.getNominativo());
+
+
+TEST(Chat, GetSetter) {
+    Utente mattia("Mattia");
+    Utente giulia("Giulia");
+    Chat c(mattia, giulia);
+    ASSERT_EQ(c.getNome().getNominativo(), mattia.getNominativo());
     //EXPECT_EQ(c.getNome().getNominativo(),"Brian");
-    ASSERT_EQ(c.getDestinatario().getNominativo(),giulia.getNominativo());
+    ASSERT_EQ(c.getDestinatario().getNominativo(), giulia.getNominativo());
 
 }
-/*TEST(Chat, functions){
-    Chat c (mattia,giulia);
-    Messaggio msg("Ciao Come stai",mattia,giulia);
+
+TEST(Chat, functions) {
+    Utente mattia("Mattia");
+    Utente giulia("Giulia");
+    Chat c(mattia, giulia);
+    Messaggio msg("Ciao Come stai", mattia, giulia);
     c.inserisciMessaggio(msg);
-    ASSERT_THROW(c.leggiMessaggi(), std::out_of_range);
+    int n = c.numeroMessaggiNonLetti();
+    ASSERT_EQ(c.numeroMessaggiNonLetti(), n);
 }
 
- */

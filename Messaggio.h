@@ -4,32 +4,29 @@
 
 #ifndef CHAT_MASTER_PRESTIFILIPPO_MESSAGGIO_H
 #define CHAT_MASTER_PRESTIFILIPPO_MESSAGGIO_H
+
 #include <iostream>
 #include <ctime>
 #include "Utente.h"
-
+#include <string>
 
 using namespace std;
+
 class Messaggio {
 public:
-    Messaggio(const string &testo, const Utente &mittente, const Utente &destinatario, bool letto= false) : testo(testo),
-                                                                                                     mittente(mittente),
-                                                                                                     destinatario(
-                                                                                                             destinatario),
-                                                                                                     letto(letto)
-                                                                                                     {
-                                                                                                         currentTime=time(nullptr);
-                                                                                                     }
-
-    Messaggio()
-    {
-        setTesto(NULL);
-        setLetto(false);
-        time(&currentTime);
+    Messaggio(const string &testo, const Utente &mittente, const Utente &destinatario, bool letto = false) : testo(
+            testo),
+                                                                                                             mittente(
+                                                                                                                     mittente),
+                                                                                                             destinatario(
+                                                                                                                     destinatario),
+                                                                                                             letto(letto) {
+        tempoInvio = time(nullptr);
     }
 
-
-    virtual ~Messaggio() {
+    Messaggio() {
+        setLetto(false);
+        time(&tempoInvio);
     }
 
     const string &getTesto() const {
@@ -48,12 +45,12 @@ public:
         Messaggio::letto = letto;
     }
 
-    time_t getCurrentTime() const {
-        return currentTime;
+    time_t getTempoInvio() const {
+        return tempoInvio;
     }
 
-    void setCurrentTime(time_t currentTime) {
-        Messaggio::currentTime = currentTime;
+    void setTempoInvio(time_t tempoInvio) {
+        Messaggio::tempoInvio = tempoInvio;
     }
 
     const Utente &getMittente() const {
@@ -63,6 +60,7 @@ public:
     void setMittente(const Utente &mittente) {
         Messaggio::mittente = mittente;
     }
+
 
     const Utente &getDestinatario() const {
         return destinatario;
@@ -82,18 +80,19 @@ public:
         return !(rhs == *this);
     }
 
-    void print(){
-        cout<<"Mittente : "<<getMittente().getNominativo()<<endl;
-        cout<<"Testo : "<<getTesto()<<endl<<"Orario : "<<std::asctime(std::localtime(&currentTime));
-        cout<<"Destinatario : "<<getDestinatario().getNominativo()<<endl<<endl;
-        letto=true;
+    string toString() {
+        string s = "Mittente : " + getMittente().getNominativo() + "\n" + "Destinatario : " +
+                   getDestinatario().getNominativo() + "\nTesto : " + getTesto() + "\n" + "Orario : " +
+                   std::asctime(std::localtime(&tempoInvio)) + "\n";
+        return s;
     }
+
 private:
     string testo;
     Utente mittente;
     Utente destinatario;
     bool letto;
-    time_t currentTime;
+    time_t tempoInvio;
 };
 
 

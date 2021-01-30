@@ -4,27 +4,31 @@
 
 #ifndef CHAT_MASTER_PRESTIFILIPPO_CHAT_H
 #define CHAT_MASTER_PRESTIFILIPPO_CHAT_H
+
 #include <iostream>
 #include <vector>
 #include "Messaggio.h"
 #include "Utente.h"
+#include <string>
+
 using namespace std;
 
 class Chat {
 public:
     Chat(const Utente &nome, const Utente &destinatario);
+
     Chat();
-    virtual ~Chat();
 
     const Utente &getNome() const;
 
     const Utente &getDestinatario() const;
 
-    const vector<Messaggio> &getChat() const;
     void inserisciMessaggio(const Messaggio &msg);
-    void inserisciMessaggioInviati(const Messaggio& msg);
-    void inserisciMessaggiArrivo(const Messaggio& msg);
+
+    int numeroMessaggiNonLetti();
+
     void leggiMessaggi();
+
     void leggiMessaggiNonLetti();
 
     bool operator==(const Chat &rhs) const;

@@ -4,16 +4,18 @@
 
 #ifndef CHAT_MASTER_PRESTIFILIPPO_UTENTE_H
 #define CHAT_MASTER_PRESTIFILIPPO_UTENTE_H
+
 #include <iostream>
+#include <string>
+
 using namespace std;
+
 class Utente {
 public:
     Utente(const string &nominativo) : nominativo(nominativo) {}
 
-    Utente(){}
+    Utente() {}
 
-    virtual ~Utente() {
-    }
 
     const string &getNominativo() const {
         return nominativo;

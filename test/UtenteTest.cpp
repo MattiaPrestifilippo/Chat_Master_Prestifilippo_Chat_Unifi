@@ -4,12 +4,11 @@
 
 #include "../Utente.h"
 
-TEST(Utente,GetSetter)
-{
+TEST(Utente, GetSetter) {
     Utente m("Mattia");
-    ASSERT_EQ(m.getNominativo(),"Mattia");
+    ASSERT_EQ(m.getNominativo(), "Mattia");
+    //ASSERT_EQ(m.getNominativo(), "Marco");
     m.setNominativo("Marco");
-    ASSERT_EQ(m.getNominativo(),"Marco");
+    ASSERT_EQ(m.getNominativo(), "Marco");
 }
-
 
