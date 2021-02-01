@@ -15,24 +15,32 @@ const Utente &Chat::getDestinatario() const {
     return destinatario;
 }
 
-void Chat::inserisciMessaggio(const Messaggio &msg) {
+bool Chat::inserisciMessaggio(const Messaggio &msg) {
     if ((msg.getMittente() == nome && msg.getDestinatario() == destinatario) ||
         (msg.getMittente() == destinatario && msg.getDestinatario() == nome)) {
         chat.push_back(msg);
+        return true;
+    } else {
+        return false;
     }
+
 }
 
 
 void Chat::leggiMessaggi() {
-
-    for (int i = 0; i < chat.size(); i++) {
+    int i = 0;
+    for (i = 0; i < chat.size(); i++) {
+        /* if(i>=chat.size()+1){
+             throw std::out_of_range("ciao");
+         }*/
         cout << chat[i].toString();
         chat[i].setLetto(true);
     }
 
+
 }
 
-int Chat::numeroMessaggiNonLetti() {
+int Chat::numeroMessaggiNonLetti() const {
     int count = 0;
     for (int i = 0; i < chat.size(); i++) {
         if (!chat[i].isLetto()) {
@@ -59,5 +67,13 @@ bool Chat::operator==(const Chat &rhs) const {
 
 bool Chat::operator!=(const Chat &rhs) const {
     return !(rhs == *this);
+}
+
+int Chat::numeroMessaggi() const {
+    int count = 0;
+    for (int i = 0; i < chat.size(); i++) {
+        count++;
+    }
+    return count;
 }
 

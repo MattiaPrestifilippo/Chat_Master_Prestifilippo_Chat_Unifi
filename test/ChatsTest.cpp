@@ -17,5 +17,8 @@ TEST(Chats, functions) {
     cs.inserisciChat(gm);
     cs.inserisciMessaggio(msg);
     ASSERT_EQ(cs.numeroTotaleNonLetti(), 2);
+    Messaggio msgs("Tutto bene tu", mattia, giulia);
+    cs.inserisciMessaggio(msg);
+    ASSERT_EQ(cs.numeroTotaleNonLetti(), 4);
 
 }

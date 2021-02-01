@@ -57,6 +57,7 @@ void Chats::printNumNonLetti(const Utente &mittente, const Utente &destinatario)
             cout << "Numero messaggi non letti tra " << registroChat[i].getNome().getNominativo() << " e "
                  << registroChat[i].getDestinatario().getNominativo() << " : "
                  << registroChat[i].numeroMessaggiNonLetti() << endl;
+
         }
     }
 }
@@ -66,7 +67,7 @@ void Chats::inserisciChat(const Chat &chat) {
 }
 
 
-int Chats::numeroTotaleNonLetti() {
+int Chats::numeroTotaleNonLetti() const {
     int count = 0;
     for (int i = 0; i < registroChat.size(); i++) {
         count += registroChat[i].numeroMessaggiNonLetti();

@@ -19,13 +19,15 @@ public:
 
     Chat();
 
+    int numeroMessaggi() const;
+
     const Utente &getNome() const;
 
     const Utente &getDestinatario() const;
 
-    void inserisciMessaggio(const Messaggio &msg);
+    bool inserisciMessaggio(const Messaggio &msg);
 
-    int numeroMessaggiNonLetti();
+    int numeroMessaggiNonLetti() const;
 
     void leggiMessaggi();
 

@@ -29,7 +29,7 @@ public:
 
     void printNumNonLetti(const Utente &mittente, const Utente &destinatario);
 
-    int numeroTotaleNonLetti();
+    int numeroTotaleNonLetti() const;
 
 private:
     std::vector<Chat> registroChat;

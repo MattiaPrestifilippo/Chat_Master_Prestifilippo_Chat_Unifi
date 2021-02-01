@@ -21,15 +21,19 @@ int main() {
     Messaggio d("Ciao Mattia sono Brian", Brian, Marco);
     Messaggio e("Ciao Brian sono Mattia", Mattia, Brian);
     registro.inserisciChat(gm);
-    registro.inserisciChat(mg);
+    //registro.inserisciChat(mg);
     registro.inserisciMessaggio(a);
-    registro.printNumNonLetti(Mattia, Giulia);
-    registro.printChatNonLetti(Mattia, Giulia);
+    registro.printNumNonLetti(Giulia, Mattia);
+    //registro.printNumNonLetti(Mattia, Giulia);
+    //registro.printChatNonLetti(Mattia, Giulia);
     registro.inserisciMessaggio(b);
     registro.printNumNonLetti(Giulia, Mattia);
-    registro.printChatNonLetti(Giulia, Mattia);
-    registro.printNumNonLetti(Mattia, Giulia);
-    registro.printChatNonLetti(Mattia, Giulia);
+    //registro.printNumNonLetti(Giulia, Mattia);
+    //registro.printChatNonLetti(Giulia, Mattia);
+    //registro.printNumNonLetti(Mattia, Giulia);
+    //registro.printChatNonLetti(Mattia, Giulia);
+    registro.printChat(Giulia, Mattia);
+    registro.printNumNonLetti(Giulia, Mattia);
 
     /*registro.inserisciChat(mb);
     registro.inserisciMessaggio(a);
